@@ -16,6 +16,7 @@ namespace ArrayIEnumerable
         {
             get
             {
+                index++;
                 return _product[index];
             }
         }
@@ -24,12 +25,11 @@ namespace ArrayIEnumerable
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
 
         public bool MoveNext()
         {
-            return index++ < _product.Length;
+            return index + 1 < _product.Length;
         }
 
         public void Reset()

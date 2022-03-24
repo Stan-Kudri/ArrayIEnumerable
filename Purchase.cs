@@ -8,11 +8,7 @@ namespace ArrayIEnumerable
 
         public Purchase(Candy[] product)
         {
-            _product = new Candy[product.Length];
-            for (var i = 0; i < product.Length; i++)
-            {
-                _product[i] = product[i];
-            }
+            Array.Copy(product, 0, _product = product, 0, _product.Length);
         }
 
         public IEnumerator<Candy> GetEnumerator()
@@ -22,7 +18,7 @@ namespace ArrayIEnumerable
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
