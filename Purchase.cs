@@ -8,7 +8,8 @@ namespace ArrayIEnumerable
 
         public Purchase(Candy[] product)
         {
-            Array.Copy(product, 0, _product = product, 0, _product.Length);
+            _product = new Candy[product.Length];
+            Array.Copy(product, 0, _product, 0, product.Length);
         }
 
         public IEnumerator<Candy> GetEnumerator()

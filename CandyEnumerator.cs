@@ -16,7 +16,6 @@ namespace ArrayIEnumerable
         {
             get
             {
-                index++;
                 return _product[index];
             }
         }
@@ -29,7 +28,10 @@ namespace ArrayIEnumerable
 
         public bool MoveNext()
         {
-            return index + 1 < _product.Length;
+            if (index + 1 >= _product.Length)
+                return false;
+            index++;
+            return true;
         }
 
         public void Reset()
